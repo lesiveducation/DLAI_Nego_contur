@@ -9,10 +9,10 @@ import { services, cases } from '../data.js';
 <Layout title="Контур переговоров — обучение команд и аутсорс переговоров" description="Обучаем отделы продаж переговорам, готовим сложные сделки и берём переговорный процесс на аутсорс.">
   <section class="hero"><div class="container"><div class="hero-copy"><span class="kicker">Агентство переговорной практики</span><h1>Договариваться — значит управлять результатом</h1><p class="lead">Развиваем переговорное мастерство команд продаж и подключаемся к сделкам, где цена ошибки особенно высока.</p><div class="actions"><a class="button" href="#">Записаться на приём</a><a class="button secondary" href="/services">Выбрать формат</a></div></div></div></section>
   <section class="bar"><div class="container">Обучение <i>•</i> Аудит <i>•</i> Подготовка сделок <i>•</i> Аутсорс переговоров</div></section>
-  <nav class="home-nav" aria-label="Основные разделы"><div class="container home-nav-grid"><a href="/services"><span>01</span><b>Услуги</b><i>↗</i></a><a href="/about"><span>02</span><b>О компании</b><i>↗</i></a><a href="/cases"><span>03</span><b>Кейсы</b><i>↗</i></a><a href="/blog"><span>04</span><b>Блог</b><i>↗</i></a><a href="/faq"><span>05</span><b>Вопросы</b><i>↗</i></a><a href="/contacts"><span>06</span><b>Контакты</b><i>↗</i></a></div></nav>
+  <nav class="home-nav" aria-label="Основные разделы"><div class="container home-nav-grid"><a href="/services"><span>01</span><b>Услуги</b><i>↗</i></a><a href="/experts"><span>02</span><b>Эксперты</b><i>↗</i></a><a href="/ai-negotiator"><span>03</span><b>Переговорный ИИ</b><i>↗</i></a><a href="/about"><span>04</span><b>О компании</b><i>↗</i></a><a href="/cases"><span>05</span><b>Кейсы</b><i>↗</i></a><a href="/blog"><span>06</span><b>Блог</b><i>↗</i></a><a href="/faq"><span>07</span><b>Вопросы</b><i>↗</i></a><a href="/contacts"><span>08</span><b>Контакты</b><i>↗</i></a></div></nav>
   <style is:global>
     .home-nav { background:var(--color-surface); border-bottom:1px solid var(--color-line); }
-    .home-nav-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); padding-block:1.5rem; }
+    .home-nav-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); padding-block:1.5rem; }
     .home-nav a { display:grid; grid-template-columns:1fr auto; grid-template-rows:auto 1fr; gap:1.8rem .75rem; min-height:138px; padding:1.2rem; color:var(--color-text); background:var(--color-bg); border:1px solid var(--color-line); border-right:0; text-decoration:none; transition:background-color .2s,color .2s,transform .2s; }
     .home-nav a:last-child { border-right:1px solid var(--color-line); }
     .home-nav a span { grid-column:1/-1; color:var(--color-muted); font-size:.7rem; font-weight:700; letter-spacing:.12em; }
@@ -21,9 +21,7 @@ import { services, cases } from '../data.js';
     .home-nav a:hover { color:var(--color-bg); background:var(--color-text); transform:translateY(-4px); }
     .home-nav a:hover span { color:currentColor; opacity:.65; }
     @media(max-width:1099px) {
-      .home-nav-grid { grid-template-columns:repeat(3,1fr); }
-      .home-nav a:nth-child(3) { border-right:1px solid var(--color-line); }
-      .home-nav a:nth-child(-n+3) { border-bottom:0; }
+      .home-nav-grid { grid-template-columns:repeat(2,1fr); }
     }
     @media(max-width:699px) {
       .home-nav-grid { grid-template-columns:repeat(2,1fr); padding-block:1rem; }

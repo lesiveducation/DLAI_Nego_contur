@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+<Layout title="Переговорный ИИ — Контур переговоров" description="ИИ-помощник собирает разрешённый контекст, формирует сценарии переговоров и тренирует команду перед реальными встречами.">
+  <PageHero label="Переговорный ИИ" title="Контекст компании превращается в тренировку" lead="ИИ-помощник собирает разрешённые данные, готовит сценарии конкретных встреч и репетирует их вместе с командой."/>
+    <section class="section"><div class="container intro"><div><span class="kicker">ИИ-опция</span><h2>Не универсальный чат-бот, а рабочий контур сделки</h2></div><div><p class="lead">Система в реальном времени сопоставляет внутреннюю аналитику компании с открытыми публикациями о партнёрах и превращает контекст в переговорные гипотезы.</p><p>Эксперт задаёт методику, проверяет выводы и помогает команде отличать полезный сигнал от машинного предположения.</p></div></div></section>
+    <section class="section dark"><div class="container process"><article><b>01</b><h3>Собирает контекст</h3><p>CRM, отчёты, история сделок, продуктовые данные и согласованные открытые источники.</p></article><article><b>02</b><h3>Строит сценарии</h3><p>Цели и интересы сторон, аргументы, диапазоны соглашения, риски и вероятные повороты диалога.</p></article><article><b>03</b><h3>Тренирует команду</h3><p>Ролевые диалоги, смена позиции собеседника, обратная связь и повторная практика.</p></article></div></section>
+    <section class="section"><div class="container guard"><div><span class="kicker">Контроль</span><h2>Данные остаются управляемыми</h2></div><div><p>До подключения согласуем перечень источников, права доступа, режим хранения и правила использования информации. Бот работает только в заданном контуре.</p><p>Финальные решения остаются за переговорщиком. ИИ ускоряет подготовку и расширяет поле вариантов, но не подменяет коммерческую ответственность.</p></div></div></section>
+    <section class="section"><div class="container"><ContactForm/></div></section>
+</Layout>
+<style>.intro,.guard{display:grid;gap:2.5rem}.process{display:grid;gap:1px;background:#394852}.process article{background:#101820;padding:2rem}.process b{color:#8eb4ff}.process p{color:#b8c1c8}.guard p{color:var(--color-muted)}@media(min-width:800px){.intro,.guard{grid-template-columns:1fr 1.1fr;gap:5rem}.process{grid-template-columns:repeat(3,1fr)}}</style>

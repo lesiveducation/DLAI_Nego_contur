@@ -1,6 +1,6 @@
 ---
 const path = Astro.url.pathname;
-const items = [['/','Главная'],['/services','Услуги'],['/about','О компании'],['/cases','Кейсы'],['/blog','Блог'],['/faq','Частые вопросы'],['/contacts','Контакты']];
+const items = [['/','Главная'],['/services','Услуги'],['/experts','Эксперты'],['/ai-negotiator','Переговорный ИИ'],['/about','О компании'],['/cases','Кейсы'],['/blog','Блог'],['/faq','Частые вопросы'],['/contacts','Контакты']];
 const active = (href) => href === '/' ? path === '/' : path.startsWith(href);
 ---
 <header><div class="container bar"><a class="logo" href="/" aria-label="Контур переговоров — главная"><span>КП</span><b>Контур<br/>переговоров</b></a><details><summary>Меню</summary><nav>{items.map(([href,label]) => <a href={href} class:list={{active:active(href)}}>{label}</a>)}</nav></details><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему" onclick="window.toggleSiteTheme()"><span class="theme-glyph" aria-hidden="true">◐</span></button><a class="button appointment" href="#">Записаться на приём</a></div></header>

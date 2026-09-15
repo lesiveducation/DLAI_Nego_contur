@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import ExpertCard from '../components/ExpertCard.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { experts } from '../data.js';
+---
+<Layout title="Эксперты — Контур переговоров" description="Эксперты с опытом от 10 лет в продажах, закупках, сложных B2B-сделках и обучении переговорных команд.">
+  <PageHero label="Эксперты" title="Практики, отвечавшие за цену решения" lead="За каждой программой стоят люди с коммерческим опытом, а не только с учебными моделями."/>
+    <section class="section"><div class="container"><div class="section-head"><div><span class="kicker">Команда</span><h2>Опыт по обе стороны стола</h2></div><p>Подбираем эксперта под отрасль, тип сделки и реальную переговорную задачу заказчика.</p></div><div class="grid-3">{experts.map(expert => <ExpertCard {...expert}/>)}</div><p class="demo-note">Имена, портреты и биографии в этом демонстрационном разделе вымышлены. Перед коммерческим запуском их нужно заменить подтверждёнными данными команды.</p></div></section>
+    <section class="section dark"><div class="container value"><span class="kicker">Принцип работы</span><h2>Эксперт остаётся рядом после тренинга</h2><p class="lead">Помогаем подготовить реальные встречи, наблюдаем за применением подхода и разбираем решения команды по итогам переговоров.</p></div></section>
+    <section class="section"><div class="container"><ContactForm/></div></section>
+</Layout>
+<style>.demo-note{margin:1.25rem 0 0;color:var(--color-muted);font-size:.72rem}.value{max-width:900px}.value .lead{color:#c8d0d7}</style>
