@@ -1,0 +1,5 @@
+---
+const { sector, metric, metricLabel, title, description } = Astro.props;
+---
+<article><div class="top"><span>{sector}</span><i>↗</i></div><div class="body"><strong>{metric}</strong><small>{metricLabel}</small><h3>{title}</h3><p>{description}</p></div></article>
+<style>article{background:#fff;border:1px solid var(--color-line)}.top{height:130px;background:var(--color-text);color:#fff;padding:1.25rem;display:flex;justify-content:space-between;overflow:hidden}.top span{font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.top i{font-style:normal;font-size:3rem;line-height:1;color:var(--color-primary)}.body{padding:1.6rem}.body strong{display:block;color:var(--color-primary);font-size:2rem;line-height:1}.body small{color:var(--color-muted)}h3{margin:1.6rem 0 .8rem}p{color:var(--color-muted);font-size:.9rem}</style>

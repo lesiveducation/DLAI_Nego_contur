@@ -1,0 +1,4 @@
+---
+import Layout from '../layouts/Layout.astro'; import PageHero from '../components/PageHero.astro'; import FAQItem from '../components/FAQItem.astro'; import ContactForm from '../components/ContactForm.astro'; import { faq } from '../data.js';
+---
+<Layout title="Частые вопросы — Контур переговоров" description="Ответы о корпоративном обучении, подготовке сделок и аутсорсе переговоров."><PageHero label="Частые вопросы" title="До начала работы" lead="Отвечаем на основные вопросы о формате, сроках и результате."/><section class="section"><div class="container list">{faq.map(([question,answer]) => <FAQItem question={question} answer={answer}/>)}</div></section><section class="section"><div class="container"><ContactForm/></div></section></Layout><style>.list{max-width:900px}</style>

@@ -1,0 +1,13 @@
+---
+const { label, title, lead } = Astro.props;
+const backgrounds = {
+  'Услуги': '/negotiation-training-v2.png',
+  'О компании': '/negotiation-strategy-v2.png',
+  'Кейсы': '/negotiation-executive-v2.png',
+  'Контакты': '/negotiation-strategy-v2.png',
+  'Частые вопросы': '/metal-arcs.png',
+  'Блог': '/negotiation-strategy-v2.png',
+};
+const background = backgrounds[label] || '/metal-arcs.png';
+---
+<section class="page-intro" style={`--page-photo:url('${background}')`}><div class="container"><div class="crumbs"><a href="/">Главная</a> / {label}</div><span class="kicker">{label}</span><h1>{title}</h1><p class="lead">{lead}</p></div></section>

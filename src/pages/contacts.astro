@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+<Layout title="Контакты — Контур переговоров" description="Контакты агентства и запись на встречу по обучению команды или сопровождению переговоров.">
+  <PageHero label="Контакты" title="Обсудим одну задачу — увидим весь контур" lead="Свяжитесь удобным способом или запишитесь на первую диагностическую встречу." />
+
+  <section class="section">
+    <div class="container contacts-layout">
+      <div class="contact-details">
+        <div class="section-title"><span class="kicker">Контактная информация</span><h2>Мы на связи</h2><p>Контактные данные ниже подготовлены как структура и заменяются на реальные перед запуском сайта.</p></div>
+        <div class="contact-grid">
+          <article><span>01</span><h3>Телефон</h3><a href="tel:+70000000000">+7 (000) 000-00-00</a><small>Заглушка</small></article>
+          <article><span>02</span><h3>Электронная почта</h3><a href="mailto:hello@example01.ru">hello@example01.ru</a><small>Заглушка</small></article>
+          <article><span>03</span><h3>Адрес</h3><p>Москва, деловой квартал<br/>точный адрес будет указан позже</p><small>Заглушка</small></article>
+          <article><span>04</span><h3>Часы работы</h3><p>Пн–Пт: 09:00–18:00<br/>Сб–Вс: по договорённости</p><small>Московское время</small></article>
+        </div>
+        <div class="legal"><h3>Реквизиты</h3><dl><div><dt>Юридическое лицо</dt><dd>Будет указано после регистрации</dd></div><div><dt>ИНН / КПП</dt><dd>— / —</dd></div><div><dt>ОГРН</dt><dd>—</dd></div></dl></div>
+      </div>
+
+      <aside class="appointment-card"><span class="kicker">Первая встреча</span><h2>45 минут по существу</h2><p>Разберём текущую переговорную ситуацию и определим, где полезнее обучение, подготовка команды или внешний переговорщик.</p><h3>К встрече полезно подготовить</h3><ul><li>краткое описание задачи;</li><li>состав участников;</li><li>что уже пробовали;</li><li>желаемый результат.</li></ul><a class="button" href="#">Записаться на приём</a><small>Кнопка будет подключена после выбора канала связи</small></aside>
+    </div>
+  </section>
+</Layout>
+
+<style>.contacts-layout{display:grid;gap:1.25rem}.section-title{margin-bottom:2rem}.section-title>p{color:var(--color-muted);max-width:650px}.contact-grid{display:grid;gap:1rem}.contact-grid article{background:#fff;border:1px solid var(--color-line);padding:1.5rem;min-height:190px}.contact-grid article>span{display:block;color:var(--color-primary);font-size:.78rem;font-weight:800;margin-bottom:1.8rem}.contact-grid h3{margin-bottom:.75rem}.contact-grid a{font-weight:700;text-decoration:none}.contact-grid p{color:var(--color-muted);margin:0}.contact-grid small{display:block;color:var(--color-muted);font-size:.75rem;margin-top:.8rem}.legal{background:#e9edf1;padding:1.5rem;margin-top:1rem}.legal h3{margin-bottom:1rem}.legal dl{margin:0}.legal dl>div{display:grid;gap:.25rem;padding:.75rem 0;border-top:1px solid #cbd3da}.legal dt{color:var(--color-muted);font-size:.82rem}.legal dd{margin:0;font-weight:700}.appointment-card{background:var(--color-text);color:#fff;padding:clamp(2rem,4vw,3rem);align-self:start}.appointment-card .kicker{color:#8eb4ff}.appointment-card p,.appointment-card li{color:#c3cdd5}.appointment-card h3{margin:2rem 0 .8rem}.appointment-card ul{padding-left:1.2rem;margin-bottom:2rem}.appointment-card li{margin:.55rem 0}.appointment-card .button{width:100%}.appointment-card>small{display:block;color:#8f9ba5;font-size:.74rem;line-height:1.5;margin-top:1rem}@media(min-width:680px){.contact-grid{grid-template-columns:repeat(2,1fr)}.legal dl>div{grid-template-columns:180px 1fr;gap:1rem}}@media(min-width:980px){.contacts-layout{grid-template-columns:1.55fr .85fr;gap:2rem}}</style>

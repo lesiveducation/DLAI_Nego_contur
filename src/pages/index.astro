@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CaseCard from '../components/CaseCard.astro';
+import Testimonial from '../components/Testimonial.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { services, cases } from '../data.js';
+---
+<Layout title="Контур переговоров — обучение команд и аутсорс переговоров" description="Обучаем отделы продаж переговорам, готовим сложные сделки и берём переговорный процесс на аутсорс.">
+  <section class="hero"><div class="container"><div class="hero-copy"><span class="kicker">Агентство переговорной практики</span><h1>Договариваться — значит управлять результатом</h1><p class="lead">Развиваем переговорное мастерство команд продаж и подключаемся к сделкам, где цена ошибки особенно высока.</p><div class="actions"><a class="button" href="#">Записаться на приём</a><a class="button secondary" href="/services">Выбрать формат</a></div></div></div></section>
+  <section class="bar"><div class="container">Обучение <i>•</i> Аудит <i>•</i> Подготовка сделок <i>•</i> Аутсорс переговоров</div></section>
+  <nav class="home-nav" aria-label="Основные разделы"><div class="container home-nav-grid"><a href="/services"><span>01</span><b>Услуги</b><i>↗</i></a><a href="/about"><span>02</span><b>О компании</b><i>↗</i></a><a href="/cases"><span>03</span><b>Кейсы</b><i>↗</i></a><a href="/blog"><span>04</span><b>Блог</b><i>↗</i></a><a href="/faq"><span>05</span><b>Вопросы</b><i>↗</i></a><a href="/contacts"><span>06</span><b>Контакты</b><i>↗</i></a></div></nav>
+  <style is:global>
+    .home-nav { background:var(--color-surface); border-bottom:1px solid var(--color-line); }
+    .home-nav-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); padding-block:1.5rem; }
+    .home-nav a { display:grid; grid-template-columns:1fr auto; grid-template-rows:auto 1fr; gap:1.8rem .75rem; min-height:138px; padding:1.2rem; color:var(--color-text); background:var(--color-bg); border:1px solid var(--color-line); border-right:0; text-decoration:none; transition:background-color .2s,color .2s,transform .2s; }
+    .home-nav a:last-child { border-right:1px solid var(--color-line); }
+    .home-nav a span { grid-column:1/-1; color:var(--color-muted); font-size:.7rem; font-weight:700; letter-spacing:.12em; }
+    .home-nav a b { align-self:end; font-size:clamp(.88rem,1vw,1.05rem); line-height:1.15; }
+    .home-nav a i { align-self:end; font-size:1.1rem; font-style:normal; }
+    .home-nav a:hover { color:var(--color-bg); background:var(--color-text); transform:translateY(-4px); }
+    .home-nav a:hover span { color:currentColor; opacity:.65; }
+    @media(max-width:1099px) {
+      .home-nav-grid { grid-template-columns:repeat(3,1fr); }
+      .home-nav a:nth-child(3) { border-right:1px solid var(--color-line); }
+      .home-nav a:nth-child(-n+3) { border-bottom:0; }
+    }
+    @media(max-width:699px) {
+      .home-nav-grid { grid-template-columns:repeat(2,1fr); padding-block:1rem; }
+      .home-nav a { min-height:112px; border:1px solid var(--color-line); margin:-1px 0 0 -1px; }
+    }
+  </style>
+  <section class="section"><div class="container"><div class="section-head"><div><span class="kicker">Услуги</span><h2>Навык для команды.<br/>Опора для бизнеса.</h2></div><p>Работаем с системой продаж и с отдельными переговорами — от диагностики до фиксации соглашения.</p></div><div class="grid-3">{services.slice(0,3).map(service => <ServiceCard {...service}/>)}</div><p class="more"><a href="/services">Все услуги →</a></p></div></section>
+  <section class="photo-break"><div class="container"><span class="kicker">Практика</span><h2>Тренируем решения,<br/>а не заученные фразы</h2></div></section>
+  <section class="section dark"><div class="container method"><div><span class="kicker">Подход</span><h2>Дисциплина решений</h2><p class="lead">Сильный переговорщик видит поле целиком: цели, интересы второй стороны, диапазон возможного и цену каждого шага.</p></div><div class="steps">{[['01','Диагностируем','Изучаем реальные разговоры и коммерческий контекст.'],['02','Проектируем','Собираем стратегию и сценарии сложных эпизодов.'],['03','Тренируем','Репетируем решения в реалистичной среде.'],['04','Закрепляем','Разбираем встречи и корректируем поведение.']].map(step=><article><b>{step[0]}</b><div><h3>{step[1]}</h3><p>{step[2]}</p></div></article>)}</div></div></section>
+  <section class="section"><div class="container"><div class="section-head"><div><span class="kicker">Кейсы</span><h2>Результат, который можно измерить</h2></div><a href="/cases">Все кейсы →</a></div><div class="grid-3">{cases.map(item => <CaseCard {...item}/>)}</div></div></section>
+  <section class="section"><div class="container"><Testimonial quote="Команда перестала искать правильную фразу и начала видеть логику разговора. Это сразу отразилось на качестве встреч и марже." name="Марина Орлова" role="Коммерческий директор, IT-сервисы"/></div></section>
+  <section class="section"><div class="container"><ContactForm/></div></section>
+</Layout>
+<style>.hero{min-height:720px;display:flex;align-items:center;color:#fff;background-image:linear-gradient(90deg,rgba(6,13,20,.97) 0%,rgba(6,13,20,.8) 46%,rgba(6,13,20,.15) 76%),url('/negotiation-hero.png');background-size:cover;background-position:center}.hero-copy{max-width:820px;padding:5rem 0}.hero h1{font-size:clamp(3rem,6.6vw,6.5rem)}.hero .lead{color:#d6dde4}.hero .kicker{color:#8eb4ff}.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}.bar{background:var(--color-primary);color:#fff;padding:.9rem 0;text-align:center;text-transform:uppercase;font-size:.73rem;font-weight:800;letter-spacing:.12em}.bar i{margin:0 1rem}.more{text-align:right;margin-top:2rem}.photo-break{min-height:520px;display:flex;align-items:end;color:#fff;padding:5rem 0;background-image:linear-gradient(0deg,rgba(7,15,23,.88),rgba(7,15,23,.08)),url('/negotiation-training.png');background-size:cover;background-position:center}.photo-break .kicker{color:#8eb4ff}.method{display:grid;gap:4rem}.steps{border-top:1px solid #394852}.steps article{padding:1.5rem 0;border-bottom:1px solid #394852;display:grid;grid-template-columns:70px 1fr;gap:1rem}.steps b{color:#8eb4ff;font-size:.9rem}@media(min-width:850px){.method{grid-template-columns:1fr 1fr}}@media(max-width:700px){.hero{min-height:640px;background-position:62% center}.bar{line-height:2}.photo-break{min-height:430px}}</style>

@@ -1,0 +1,5 @@
+---
+const { icon, title, description, meta } = Astro.props;
+---
+<article><div class="icon">{icon}</div><h3>{title}</h3><p>{description}</p><small>{meta}</small><a href="/contacts">Обсудить задачу <span>↗</span></a></article>
+<style>article{min-height:320px;background:var(--color-surface);border:1px solid var(--color-line);padding:clamp(1.4rem,3vw,2.2rem);display:flex;flex-direction:column;transition:.25s}article:hover{transform:translateY(-4px);box-shadow:0 18px 45px #28372f13}.icon{font-size:2.5rem;color:var(--color-primary);margin-bottom:2.2rem}p{color:var(--color-muted);font-size:.93rem}small{color:var(--color-jade);font-weight:700;margin-bottom:1.5rem}a{margin-top:auto;color:var(--color-primary);font-weight:800;text-decoration:none;font-size:.88rem}a span{float:right}</style>

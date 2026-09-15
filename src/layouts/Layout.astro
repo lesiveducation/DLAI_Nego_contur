@@ -1,0 +1,161 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem('theme');
+        const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = saved || preferred;
+        window.toggleSiteTheme = () => {
+          const root = document.documentElement;
+          const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+          root.dataset.theme = next;
+          localStorage.setItem('theme', next);
+          const button = document.getElementById('theme-toggle');
+          if (button) {
+            button.setAttribute('aria-pressed', String(next === 'dark'));
+            button.setAttribute('aria-label', next === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему');
+          }
+        };
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <SEO title={title} description={description} />
+  </head>
+  <body>
+    <Header />
+    <main><slot /></main>
+    <Footer />
+    <script is:inline>
+      (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="8tPXHR7znDLx3roKhba35";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: light;
+    --header-bg: rgba(255,255,255,.94);
+  }
+
+  [data-theme='dark'] {
+    color-scheme: dark;
+    --color-bg: #0a0a0a;
+    --color-surface: #151515;
+    --color-text: #f4f4f4;
+    --color-primary: #f4f4f4;
+    --color-primary-dark: #d7d7d7;
+    --color-muted: #aaa;
+    --color-line: #333;
+    --header-bg: rgba(10,10,10,.94);
+  }
+
+  body, header, article, aside, .stat, .legal, .principles, .posts {
+    transition: color .2s ease, background-color .2s ease, border-color .2s ease;
+  }
+
+  [data-theme='dark'] body,
+  [data-theme='dark'] .section,
+  [data-theme='dark'] .principles { background-color: #0a0a0a; }
+  [data-theme='dark'] .contact-grid article,
+  [data-theme='dark'] .posts article,
+  [data-theme='dark'] .stat,
+  [data-theme='dark'] .legal,
+  [data-theme='dark'] .grid-3 > article { background-color: #151515; }
+  [data-theme='dark'] .button { background:#f4f4f4; color:#090909; border-color:#f4f4f4; }
+  [data-theme='dark'] .button.secondary { background:#111; color:#fff; border-color:#fff; }
+  .theme-toggle { background:transparent !important; color:var(--color-text) !important; border-color:var(--color-text) !important; }
+  .theme-toggle .theme-glyph { display:block !important; color:currentColor !important; font-size:1.25rem; line-height:1; }
+  [data-theme='dark'] .bar { background:#202020 !important; color:#fff !important; }
+  [data-theme='dark'] .grid-3 article .top { background:#202020 !important; color:#fff !important; }
+  [data-theme='dark'] .grid-3 article .top span { color:#fff !important; }
+  [data-theme='dark'] .grid-3 article small { color:#b8b8b8 !important; }
+  [data-theme='dark'] figure { background:#202020 !important; color:#fff !important; }
+  [data-theme='dark'] figure blockquote,
+  [data-theme='dark'] figure figcaption,
+  [data-theme='dark'] figure figcaption b { color:#fff !important; }
+  [data-theme='dark'] figure figcaption small { color:#b8b8b8 !important; }
+  [data-theme='dark'] footer { background:#050505 !important; color:#fff !important; }
+  [data-theme='dark'] footer .monogram { background:#fff !important; color:#090909 !important; }
+
+  .page-intro,
+  .hero {
+    background-color: #ededed !important;
+    background-image:
+      linear-gradient(90deg, rgba(242,242,242,.99) 0%, rgba(242,242,242,.97) 42%, rgba(242,242,242,.78) 61%, rgba(242,242,242,.16) 100%),
+      var(--page-photo, url('/metal-arcs.png')) !important;
+    background-size: cover !important;
+    background-position: center 42% !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .hero { --page-photo: url('/negotiation-executive-v2.png'); }
+  body .photo-break {
+    background-image:linear-gradient(0deg,rgba(5,5,5,.82),rgba(5,5,5,.12)),url('/negotiation-training-v2.png') !important;
+    background-position:center 28% !important;
+  }
+
+  .page-intro h1,
+  .page-intro .lead,
+  .page-intro .kicker,
+  .page-intro .crumbs,
+  .hero h1,
+  .hero .lead,
+  .hero .kicker {
+    color: #090909 !important;
+  }
+
+  .page-intro h1,
+  .hero h1 {
+    line-height: .98 !important;
+    margin-bottom: clamp(1.5rem, 2.5vw, 2.25rem) !important;
+  }
+
+  .page-intro .lead,
+  .hero .lead {
+    position: relative;
+    z-index: 1;
+  }
+
+  [data-theme='dark'] .page-intro,
+  [data-theme='dark'] .hero {
+    background-color:#080808 !important;
+    background-image:
+      linear-gradient(90deg,rgba(5,5,5,.99) 0%,rgba(5,5,5,.96) 42%,rgba(5,5,5,.78) 61%,rgba(5,5,5,.12) 100%),
+      var(--page-photo, url('/metal-arcs.png')) !important;
+  }
+
+  [data-theme='dark'] .page-intro h1,
+  [data-theme='dark'] .page-intro .lead,
+  [data-theme='dark'] .page-intro .kicker,
+  [data-theme='dark'] .page-intro .crumbs,
+  [data-theme='dark'] .hero h1,
+  [data-theme='dark'] .hero .lead,
+  [data-theme='dark'] .hero .kicker { color:#f4f4f4 !important; }
+
+  @media (max-width: 759px) {
+    .page-intro,
+    .hero {
+      background-image:
+        linear-gradient(rgba(242,242,242,.92), rgba(242,242,242,.92)),
+        var(--page-photo, url('/metal-arcs.png')) !important;
+      background-position: 64% 38% !important;
+    }
+    [data-theme='dark'] .page-intro,
+    [data-theme='dark'] .hero {
+      background-image:linear-gradient(rgba(5,5,5,.9),rgba(5,5,5,.9)),var(--page-photo, url('/metal-arcs.png')) !important;
+    }
+  }
+</style>

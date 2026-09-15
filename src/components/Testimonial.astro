@@ -1,0 +1,5 @@
+---
+const { quote, name, role } = Astro.props;
+---
+<figure><span>“</span><blockquote>{quote}</blockquote><figcaption><b>{name}</b><small>{role}</small></figcaption></figure>
+<style>figure{margin:0;padding:clamp(2rem,6vw,5rem);background:var(--color-primary);color:#fff;position:relative}figure>span{position:absolute;right:5%;top:-1rem;font-size:11rem;line-height:1;opacity:.14}blockquote{font-size:clamp(1.35rem,3vw,2.5rem);line-height:1.35;margin:0 0 2rem;max-width:900px}figcaption small{display:block;color:#ffd0c8}</style>

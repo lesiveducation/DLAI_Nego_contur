@@ -1,0 +1,20 @@
+---
+const { question, answer } = Astro.props;
+---
+<details><summary>{question}<span>＋</span></summary><p>{answer}</p></details>
+<style>
+  details{position:relative;border-top:1px solid var(--color-line);padding:1.5rem 0;transition:background-color .22s ease}
+  details:last-child{border-bottom:1px solid var(--color-line)}
+  details::before{content:"";position:absolute;inset:-1px 0 auto;width:0;height:2px;background:var(--color-text);transition:width .35s ease}
+  summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer;font-size:1.08rem;font-weight:800;transition:transform .22s ease,color .22s ease}
+  summary::-webkit-details-marker{display:none}
+  summary span{color:var(--color-text);font-size:1.5rem;line-height:1;transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+  details:hover{background:color-mix(in srgb,var(--color-text) 5%,transparent)}
+  details:hover::before{width:100%}
+  details:hover summary{transform:translateX(8px)}
+  details:hover summary span{transform:rotate(90deg) scale(1.15)}
+  details[open] summary span{transform:rotate(45deg)}
+  details:hover[open] summary span{transform:rotate(135deg) scale(1.15)}
+  p{color:var(--color-muted);max-width:780px;padding-top:1rem}
+  @media(prefers-reduced-motion:reduce){details,details::before,summary,summary span{transition:none!important}details:hover summary,details:hover summary span{transform:none}}
+</style>
