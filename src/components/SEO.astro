@@ -1,7 +1,8 @@
 ---
 const { title, description, image = '/negotiation-executive-v2.png' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const socialImage = new URL(image, Astro.site);
+const baseUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
+const socialImage = new URL(`${baseUrl}${image.replace(/^\/+/, '')}`, Astro.site);
 ---
 <title>{title}</title>
 <meta name="description" content={description} />

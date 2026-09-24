@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ch546333.tw1.ru/sitemap-index.xml
+Sitemap: https://lesiveducation.github.io/DLAI_Nego_contur/sitemap-index.xml
